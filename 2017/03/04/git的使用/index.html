@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="-hexo -测试," />
+  <meta name="keywords" content="-git -github," />
 
 
 
@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="测试">
+<meta name="description" content="github连接不上&amp;push本地代码到github上时出错的可能解决方案">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello">
-<meta property="og:url" content="http://yoursite.com/2017/01/21/text/index.html">
+<meta property="og:title" content="使用git管理github远程仓库出错的一些可能解决方案">
+<meta property="og:url" content="http://yoursite.com/2017/03/04/git的使用/index.html">
 <meta property="og:site_name" content="ZeroFang">
-<meta property="og:description" content="测试">
-<meta property="og:updated_time" content="2017-03-04T08:11:18.963Z">
+<meta property="og:description" content="github连接不上&amp;push本地代码到github上时出错的可能解决方案">
+<meta property="og:updated_time" content="2017-03-04T09:48:44.698Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello">
-<meta name="twitter:description" content="测试">
+<meta name="twitter:title" content="使用git管理github远程仓库出错的一些可能解决方案">
+<meta name="twitter:description" content="github连接不上&amp;push本地代码到github上时出错的可能解决方案">
 
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/01/21/text/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/03/04/git的使用/"/>
 
 
 
 
 
-  <title> Hello | ZeroFang </title>
+  <title> 使用git管理github远程仓库出错的一些可能解决方案 | ZeroFang </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -240,7 +240,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/21/text/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/04/git的使用/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="ZeroFang">
@@ -264,7 +264,7 @@
             
             
               
-                Hello
+                使用git管理github远程仓库出错的一些可能解决方案
               
             
           </h1>
@@ -279,8 +279,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-21T18:07:59+08:00">
-                2017-01-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-04T17:48:44+08:00">
+                2017-03-04
               </time>
             
 
@@ -298,8 +298,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/01/21/text/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/21/text/" itemprop="commentCount"></span>
+                <a href="/2017/03/04/git的使用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/04/git的使用/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -314,7 +314,7 @@
 
           
               <div class="post-description">
-                  测试
+                  github连接不上&push本地代码到github上时出错的可能解决方案
               </div>
           
 
@@ -329,11 +329,49 @@
       
 
       
-        <p>我的博客 </p>
-<p><pre><code>“hello world!”</code></pre><br>呵呵呵呵呵呵哈哈哈哈哈哈哈</p>
-<blockquote>
-<p>哈哈哈哈哈哈哈哈</p>
+        <p><strong>作为一个渣渣，分享一下我在windows下使用git上传项目代码到github中遇到的一些问题的解决方案。</strong></p>
+<hr>
+<h2 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h2><blockquote>
+<p>在git bash下输入<br><code>$ ssh -T git@github.com</code><br>出现错误提示：<br><code>Permission denied (publickey).</code></p>
 </blockquote>
+<p><strong>原因：</strong></p>
+<p>目前的key不能加入ssh，连接不上github。</p>
+<p><strong>可能的解决方案：</strong></p>
+<p>1.<br>输入<code>$ cat ~/.ssh/id_rsa.pub</code>，将获得的key复制。</p>
+<p>2.<br>打开你的github主页，点击你的头像，点击下拉菜单中的”<strong>Settings</strong>“。</p>
+<p>3.<br>在左边的菜单栏中点击”<strong>SSH and GPG keys</strong>“。</p>
+<p>4.<br>点击右上方绿色按钮”<strong>New SSH key</strong>“。</p>
+<p>5.<br>在”<strong>Title</strong>“处填上你自己起的标题，”<strong>Key</strong>“处按照要求的格式粘贴上刚才获取的key，注意不要有多余的空格或字符。然后点击”<strong>Add SSH key</strong>“。</p>
+<p>然后再次在git bash下输入<br><code>$ ssh -T git@github.com</code><br>若出现<br><code>hi your_name.....success.....but no shell access</code><br>则表示连接成功。</p>
+<h2 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h2><blockquote>
+<p>push代码时出错：<br> 输入<br><code>$ git push -u origin master</code><br>出现如下错误提示：<br><code>To git@github.com:xxxxx/xxxx.git
+ ! [rejected]        master -&gt; master (non-fast-forward)
+error: failed to push some refs to &#39;git@github.com:xxxxx/xxxx.git&#39;
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Merge the remote changes (e.g. &#39;git pull&#39;)
+hint: before pushing again.
+hint: See the &#39;Note about fast-forwards&#39; in &#39;git push --help&#39; for details.</code></p>
+</blockquote>
+<p><strong>原因：</strong></p>
+<p>远程repository与本地repository冲突。</p>
+<p><strong>可能的解决方案：</strong></p>
+<p>1.使用强制push的方法：</p>
+<blockquote>
+<p><code>$ git push -u origin master -f</code></p>
+</blockquote>
+<p>但这样会使远程修改丢失，一般是不可取的，尤其是多人协作开发的时候。</p>
+<p>2.push前先将远程repository修改pull下来：</p>
+<blockquote>
+<p><code>$ git pull origin master</code></p>
+<p><code>$ git push -u origin master</code></p>
+</blockquote>
+<p>3.若不想merge远程和本地修改，可以先创建新的分支：</p>
+<blockquote>
+<p><code>$ git branch [name]</code></p>
+<p><code>$ git push -u origin [name]</code></p>
+</blockquote>
+<p>注：将“[name]”换为你的命名。</p>
+<p><strong>希望能够对大家有所帮助，如有错误，欢迎指正。</strong></p>
 
       
     </div>
@@ -357,7 +395,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo-测试/" rel="tag"># -hexo -测试</a>
+            <a href="/tags/git-github/" rel="tag"># -git -github</a>
           
         </div>
       
@@ -366,8 +404,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/17/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2017/01/21/text/" rel="next" title="Hello">
+                <i class="fa fa-chevron-left"></i> Hello
               </a>
             
           </div>
@@ -375,10 +413,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/04/git的使用/" rel="prev" title="使用git管理github远程仓库出错的一些可能解决方案">
-                使用git管理github远程仓库出错的一些可能解决方案 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -404,8 +438,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/01/21/text/"
-           data-title="Hello" data-url="http://yoursite.com/2017/01/21/text/">
+      <div class="ds-thread" data-thread-key="2017/03/04/git的使用/"
+           data-title="使用git管理github远程仓库出错的一些可能解决方案" data-url="http://yoursite.com/2017/03/04/git的使用/">
       </div>
     
   </div>
@@ -429,8 +463,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -479,6 +522,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1"><span class="nav-number">1.</span> <span class="nav-text">1.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2"><span class="nav-number">2.</span> <span class="nav-text">2.</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
